@@ -34,17 +34,13 @@ function App() {
 
       <Container>
         <Description />
-      </Container>
 
-      <Container>
         <Options
           updateFunction={updateFeedback}
           resetButton={Boolean(totalFeedback)}
           resetFunction={setFeedback}
         />
-      </Container>
 
-      <Container>
         {totalFeedback === 0 ? (
           <Notification />
         ) : (
