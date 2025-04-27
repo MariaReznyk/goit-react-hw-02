@@ -20,6 +20,10 @@ function App() {
     setFeedback({ ...feedback, [feedbackType]: feedback[feedbackType] + 1 });
   };
 
+  const resetFeedback = () => {
+    setFeedback({ good: 0, neutral: 0, bad: 0 });
+  };
+
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
   const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
 
@@ -39,7 +43,7 @@ function App() {
         <Options
           updateFunction={updateFeedback}
           resetButton={Boolean(totalFeedback)}
-          resetFunction={setFeedback}
+          resetFunction={resetFeedback}
         />
 
         {totalFeedback === 0 ? (

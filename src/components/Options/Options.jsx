@@ -40,7 +40,7 @@ export default function Options({
       {resetButton && (
         <button
           className={clsx(styles.button, styles.btnRefresh)}
-          onClick={() => resetFunction({ good: 0, neutral: 0, bad: 0 })}
+          onClick={resetFunction}
         >
           Reset
           <TbRefresh color="#8B0000" size={22} />
