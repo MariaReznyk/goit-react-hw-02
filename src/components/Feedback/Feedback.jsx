@@ -1,8 +1,13 @@
 import styles from './Feedback.module.css';
 import clsx from 'clsx';
 
-export default function Feedback({ good, neutral, bad, totalFeedback }) {
-  const positiveFeedback = Math.round((good / totalFeedback) * 100);
+export default function Feedback({
+  good,
+  neutral,
+  bad,
+  totalFeedback,
+  positiveFeedback,
+}) {
   return (
     <div className={styles.feedbackSet}>
       <p>Good: {good}</p>
@@ -13,8 +18,8 @@ export default function Feedback({ good, neutral, bad, totalFeedback }) {
         Positive:{' '}
         <span
           className={clsx(
-            positiveFeedback > 80 && styles.feedbackGreen,
-            positiveFeedback > 60 &&
+            positiveFeedback >= 80 && styles.feedbackGreen,
+            positiveFeedback >= 60 &&
               positiveFeedback < 80 &&
               styles.feedbackYellow,
             positiveFeedback < 60 && styles.feedbackRed,
